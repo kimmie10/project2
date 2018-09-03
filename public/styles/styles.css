@@ -1,3 +1,40 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+img {
+  width: 150px;
+  height: 50px;
+}
+
+.level {
+  margin-top: 20px;
+}
+
+#chk, .chk {
+  float: right;
+  margin: 2px;
+}
+
+#remove, .button.is-danger {
+  float: right;
+  margin: 2px;
+}
+
+li {
+  background-color: azure;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  margin-bottom: 50px;
+}
+ .card-content {
+text-align: center;
+background-color: blanchedalmond;
+padding-top: 0%;
+}
+
+.footer {
+
+  background-color: rgb(250, 239, 239);
+}
