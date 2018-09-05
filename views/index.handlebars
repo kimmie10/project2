@@ -1,18 +1,23 @@
 <div id="home">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-half">
+      <div class="column">
         <nav class="level">
-          <div class="level-item has-text-centered">
+          <div class="level-item">
             <img src="/styles/images/book-161128_1280.png" alt="Image of Book with Logo CGKP">
             <div id="logo">CG KP</div>
           </div>
           <div class="level-item has-text-centered">
             <h1>{{msg}}</h1>
           </div>
-          <div class="level-item has-text-centered">
-            <a href="#example-text" class="button is-link">Add A Book</a>
-          </div>
+          <br class="br" style="margin-bottom: 0;">
+          <form class="field" action="POST">
+            <div class="control">
+              <label for="search-field">Add Book</label>
+              <input type="text" id="example-text" class="input is-primary" aria-describedby="search-field" placeholder="Select by Author or Title">
+            </div>
+            <button id="submit" class="button is-primary is-small">Submit</button>
+          </form>
         </nav>
         <div class="box">
           <article class="media">
@@ -105,15 +110,7 @@
             </div>
           </article>
         </div>
-        <br class="br" style="margin-bottom: 0;">
-        <form class="field" action="POST">
-          <div class="control">
-            <label for="search-field">Select by Author or Title</label>
-            <input type="text" id="example-text" class="input is-primary" aria-describedby="search-field" placeholder="Search">
-          </div>
-          <br class="br" style="margin-bottom: 0;">
-          <button id="submit" class="button is-primary is-large">Submit</button>
-        </form>
+
         <br class="br" style="margin-bottom: 0;">
 
         <h2>Books:</h2>
