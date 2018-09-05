@@ -1,26 +1,128 @@
 <div id="home">
   <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <img class="is-rounded" src="/styles/images/book-161128_1280.png" alt="Image of Book with Logo CGKP">
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+          <div class="level-item has-text-centered">
+            <h1>{{msg}}</h1>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <div class="level-item has-text-centered">
+            <a href="#example-text" class="button is-link">Add A Book</a>
+          </div>
+        </nav>
+        <div class="box">
+          <article class="media">
+            <div class="media-left" id="book-cover">
+              <figure class="image is-128x128">
+                <img src="https://bulma.io/images/placeholders/256x256.png" alt=" Book Cover Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p id="topBookDetail">Book Details from Top Viewed Book</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Book Cover Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Book Title</strong>
+                  <br>
+                  Book Details, Author, Plot etc.
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Book Cover Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Book Title</strong>
+                  <br>
+                  Book Details, Author, Plot etc.
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Book Cover Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Book Title</strong>
+                  <br>
+                  Book Details, Author, Plot etc.
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+        <br class="br" style="margin-bottom: 0;">
+        <form class="field" action="POST">
+          <div class="control">
+            <label for="search-field">Select by Author or Title</label>
+            <input type="text" id="example-text" class="input is-primary" aria-describedby="search-field" placeholder="Search">
+          </div>
+          <br class="br" style="margin-bottom: 0;">
+          <button id="submit" class="button is-primary is-large">Submit</button>
         </form>
-        <h3>Examples:</h3>
+        <br class="br" style="margin-bottom: 0;">
+        <h2>Books:</h2>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            <a href="bookInfo/{{this.id}}">{{this.text}}</a>
+            <label class="checkbox">
+              <input type="checkbox" id="chk" value="Add checkbox">
+            </label>
+            <button class="button is-danger is-small" id="remove">ｘ</button>
           </li>
           {{/each}}
         </ul>
