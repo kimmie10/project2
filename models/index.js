@@ -39,13 +39,11 @@ Object.keys(db).forEach(function(modelName) {
 var Books = sequelize.define("books", {
   author: Sequelize.STRING, 
   title: Sequelize.STRING,
-  des: Sequelize.STRING, 
-  date: Sequelize.DATE
+  summary: Sequelize.STRING, 
+  publish_date: Sequelize.DATE, 
+  author_id: Sequelize.INTEGER, autoIncrement: true
 });
 Books.sync();
-
-
-
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

@@ -1,9 +1,5 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS books_b;
+CREATE DATABASE books_db;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
-
-use exampledb;
-
-select * from exampledb;
+DROP DATABASE IF EXISTS users_db;
+CREATE DATABASE users_db;
