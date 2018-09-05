@@ -1,10 +1,40 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+section, .card, #home {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+.hero {
+  text-align: center;
 }
 
 img {
   width: 150px;
   height: 50px;
+}
+
+#logo {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-weight: 900;
+  word-spacing: 30px;
+  font-family: cursive;
+}
+
+.level-item {
+  position: relative;
+  text-align: center;
 }
 
 .level {
@@ -13,7 +43,8 @@ img {
 
 #chk, .chk {
   float: right;
-  margin: 2px;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 #remove, .button.is-danger {
@@ -23,10 +54,11 @@ img {
 
 li {
   background-color: azure;
-  border-bottom-style: solid;
-  border-bottom-color: black;
-  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: 1px;
   margin-bottom: 50px;
+  padding: 4px;
 }
  .card-content {
 text-align: center;
@@ -37,4 +69,5 @@ padding-top: 0%;
 .footer {
 
   background-color: rgb(250, 239, 239);
+  height: 50px;
 }
