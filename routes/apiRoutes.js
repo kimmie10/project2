@@ -9,18 +9,18 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  app.post("/api/books", function(req, res) {
+    db.Book.create(req.body).then(function(dbBook) {
+      res.json(dbBook);
     });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
+  app.delete("/api/books/:id", function(req, res) {
+    db.Book.destroy({ where: { id: req.params.id } }).then(function(
+      dbBook
     ) {
-      res.json(dbExample);
+      res.json(dbBook);
     });
   });
 };
