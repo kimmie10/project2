@@ -112,19 +112,29 @@
         </div>
 
         <br class="br" style="margin-bottom: 0;">
-
-        <h2>Books:</h2>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="bookInfo/{{this.id}}">{{this.text}}</a>
-            <label class="checkbox">
-              <input type="checkbox" id="chk" value="Add checkbox">
-            </label>
-            <button class="button is-danger is-small" id="remove">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        <section class="section">
+          <div class="container">
+            <h2>Books:</h2>
+            <ul id="example-list" class="list-group">
+              {{#each bookss}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <a href="bookInfo/{{this.id}}">{{this.title}}</a>
+                <label class="checkbox">
+                  <input type="checkbox" id="chk" value="Add checkbox">
+                </label>
+                <button class="button is-danger is-small" id="remove">ｘ</button>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+        </section>
+        <footer class="footer">
+          <div class="content has-text-centered">
+            <p>
+              <a href="">CGKP</a>
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
   </div>
