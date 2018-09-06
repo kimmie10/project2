@@ -2,13 +2,20 @@
   "development": {
     "username": "root",
     "password": "",
+<<<<<<< HEAD
     "database": "biblioteca_development",
     "host": "127.0.0.1",
+=======
+    "host": "localhost",
+    "database": "biblioteca_development",
+    "host": "localhost",
+>>>>>>> 226292d4bc61424f2b85addd2689581adc70f692
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
+<<<<<<< HEAD
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -21,3 +28,16 @@
     "dialect": "mysql"
   }
 }
+=======
+    "database": "biblioteca_test",
+    "host": "localhost",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}
+
+>>>>>>> 226292d4bc61424f2b85addd2689581adc70f692
