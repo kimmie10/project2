@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Book.associate = function(_models) {
+  Book.associate = function(/*_models*/) {
     // associations can be defined here
   };
   return Book;
