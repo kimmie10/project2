@@ -1,10 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "gv)=kk4EdApn",
     "host": "localhost",
     "database": "biblioteca_development",
-    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
