@@ -5,19 +5,17 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Book.findAll({}).then(function(dbBooks) {
       res.render("index", {
-        msg: "Catchy Book Share Title",
-        examples: dbBooks
+        msg: "BIBLIOTECA",
+        books: dbBooks
       });
     });
   });
 
   // Load example page and pass in an example by id
   app.get("/bookInfo/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
+    db.Book.findOne({ where: { id: req.params.id } }).then(function(dbBook) {
       res.render("bookInfo", {
-        example: dbExample
+        books: dbBook
       });
     });
   });
