@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/bookInfo/:id", function(req, res) {
+  app.get("/books/:id", function(req, res) {
     db.Book.findOne({ where: { id: req.params.id } }).then(function(dbBook) {
       res.render("bookInfo", {
         books: dbBook
@@ -21,7 +21,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 };

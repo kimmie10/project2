@@ -4,17 +4,13 @@ html, body {
 }
 
 section, .card, #home {
-  min-height: 100%;
-  margin-bottom: -50px;
+  /*min-height: 100%;*/
+  /*margin-bottom: -50px;*/
 }
 
-.list-group-item {
-  line-height: 2.5;
-}
-
-.hero {
-  text-align: center;
-}
+/*.list-group-item {*/
+  /*line-height: 2.5;*/
+/*}*/
 
 img {
   width: 150px;
@@ -41,20 +37,20 @@ img {
   margin-top: 20px;
 }
 
-#chk, .chk {
-  float: right;
-  margin-left: 5px;
-  margin-top: 5px;
-}
+/*#chk, .chk {*/
+  /*float: right;*/
+  /*margin-left: 5px;*/
+  /*margin-top: 5px;*/
+/*}*/
 
-#remove, .button.is-danger {
-  float: right;
-  margin: 2px;
-}
+/*#remove, .button.is-danger {*/
+  /*float: right;*/
+  /*margin: 2px;*/
+/*}*/
 
-button {
-  margin-top: 2px;
-}
+/*button {*/
+  /*margin-top: 2px;*/
+/*}*/
 
 li {
   background-color: azure;
@@ -71,7 +67,6 @@ padding-top: 0%;
 }
 
 .footer {
-
   background-color: rgb(250, 239, 239);
   height: 50px;
 }

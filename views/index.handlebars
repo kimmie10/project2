@@ -1,4 +1,4 @@
-<div id="home">
+<div section>
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
@@ -14,34 +14,20 @@
             <a href="#search-value"><button class="button is-link">Add A Book</button></a>
           </div>
         </nav>
-        <div class="box">
-          <article class="media">
-            <div class="media-left" id="book-cover">
-              <figure class="image is-128x128">
-                <img src={{{link href=book-cover.url class="bookImg"}}} alt=" Book Cover Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p id="topBookTitle">{{book.title}}</p>
-              </div>
-            </div>
-          </article>
-        </div>
         {{#each books}}
         <div class="box">
           <article class="media">
             <div class="media-left">
               <figure class="image is-64x64">
-                <img src={{link href=book-cover.url class="bookImg"}} alt="Book Cover Image">
+                <img src={{link href=book-cover.url class="bookImg"}} />
               </figure>
             </div>
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>{{this.id}}  {{this.title}}</strong>
+                  <strong>{{this.title}}</strong>
                   <br>
-                  {{this.summary}}
+                    {{ trimString this.summary}}
                 </p>
 
                 </p>
@@ -59,31 +45,9 @@
           </article>
         </div>
         {{/each}}
-        <form class="field" action="POST">
-          <div class="control">
-            <label for="search-field">Select by Author or Title</label>
-            <input type="text" id="search-value" class="input is-primary" aria-describedby="search-field" placeholder="Select by Author or Title">
-            <button id="search" class="button is-primary is-medium">Submit</button>
-          </div>
 
-        </form>
-        <br class="br" style="margin-bottom: 0;">
-        <section class="section">
-          <div class="container">
-            <h2 class="title">Books:</h2>
-            <ul id="example-list" class="list-group">
-              {{#each books}}
-              <li data-id="{{this.id}}" class="list-group-item">
-                <a href="bookInfo/{{this.id}}">{{this.title}}</a>
-                <label class="checkbox">
-                  <input type="checkbox" id="chk" value="Add checkbox">
-                </label>
-                <button class="button is-danger is-small" id="remove">ｘ</button>
-              </li>
-              {{/each}}
-            </ul>
-          </div>
-        </section>
+        {{> search_form}}
+
         <footer class="footer">
           <div class="content has-text-centered">
             <p>
@@ -95,6 +59,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
