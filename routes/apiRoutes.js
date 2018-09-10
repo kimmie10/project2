@@ -39,12 +39,14 @@ module.exports = function(app) {
     console.log(req.params);
     let title = req.params.title;
     googleBooks.search(title, options, function(error, results) {
-      if (error) {
-        console.log(results[0]);
+
+      if (!error) {
+        console.log(results);
+        return results;
       } else {
         console.log(error);
       }
-      res.json({ googleBooks: results });
     });
+    res.json({googleBooks: results});
   });
 };

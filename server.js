@@ -15,20 +15,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Handlebars
-// app.engine(
-//   "handlebars",
-//   exphbs({
-//     defaultLayout: "main"
-//   })
-// );
-
-var hbsHelpers = exphbs.create({
+var hbs = exphbs.create({
   helpers: require("./helpers/hsbHelpers.js").helpers,
-  defaultLayout: "main"
+  defaultLayout: "main",
+  // layoutsDir: __dirname + "/views/pages/",
+  partialsDir: __dirname + "/views/partials/"
+  // partialsDir: ["shared/templates/", "views/partials/"]
 });
 
-app.engine("handlebars", hbsHelpers.engine);
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Routes

@@ -22,12 +22,19 @@ module.exports = function(app) {
 
   //Load author page
   app.get("/authors/:authorId", function(req, res) {
-    db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(
-      dbBooks
-    ) {
+    db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(author) {
       res.render("authors", {
-        books: dbBooks
+        author: author
       });
+    });
+  });
+
+  app.get("/search/", function(req, res) {
+    // res.render("search");
+    res.render("search", {
+      partial: function() {
+        return "search_results";
+      }
     });
   });
 

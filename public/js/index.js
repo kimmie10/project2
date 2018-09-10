@@ -28,16 +28,6 @@ var API = {
   }
 };
 
-// var handleData = function(resJSON) {
-//   console.log(resJSON);
-//   var templateSource = $("#template").html(),
-//     template = Handlebars.compile(templateSource),
-//     searchResutlHTML = template(resJSON);
-//   console.log(template(resJSON));
-//   console.log(searchResutlHTML);
-//   $("#results").html(searchResutlHTML);
-// };
-
 var searchBooks = function(event) {
   event.preventDefault();
 
