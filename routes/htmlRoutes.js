@@ -13,11 +13,20 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/bookInfo/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
+    db.Book.findOne({ where: { id: req.params.id } }).then(function(dbBook) {
       res.render("bookInfo", {
         example: dbExample
+      });
+    });
+  });
+
+  //Load author page
+  app.get("/authors/:authorId", function(req, res) {
+    db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(
+      dbBook
+    ) {
+      res.render("authors", {
+        books: dbBook
       });
     });
   });
