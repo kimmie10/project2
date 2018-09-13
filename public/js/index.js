@@ -41,10 +41,10 @@ var searchBooks = function(event) {
   }
 
   API.googleSearchBook(query).then(function(data) {
-    console.log(data);
-    return data;
+    //Return the compiled data result into HTML .
+    $("#google-results").html(data);
   });
-  $searchBookValue.val("");
+  // $searchBookValue.val("");
 };
 
 // Add event listeners to the submit button

@@ -36,17 +36,22 @@ module.exports = function(app) {
   });
 
   app.get("/api/googlebooks/search/:title", function(req, res) {
-    console.log(req.params);
     let title = req.params.title;
     googleBooks.search(title, options, function(error, results) {
-
       if (!error) {
         console.log(results);
-        return results;
       } else {
         console.log(error);
       }
+      // We are sending back the result "page" to the client
+      res.render("search", {
+        googleBooks: results,
+        // Overrides which layout to use, instead of the defaul "main" layout.
+        layout: "results"
+        // partial: function() {
+        //   return "bood_card";
+        // }
+      });
     });
-    res.json({googleBooks: results});
   });
 };

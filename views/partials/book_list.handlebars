@@ -1,0 +1,31 @@
+<section class="section">
+    <div class="container">
+        <article class="media">
+            <figure class="media-left">
+                {{{imageTag book.thumbnail}}}
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <h3 class="tile is-3-mobile">{{book.title}}</h3>
+                    <p class="subtitle is-3-mobile" data-author={{this.authors}}>by {{joinList this.authors}}
+                        <small>[{{joinList this.categories}}]</small>
+                    </p>
+                    {{trimString book.description}}
+                </div>
+                <nav class="level is-mobile">
+                    <div class="level-left">
+                        <a href={{book.link}} data-google-link={{book.link}} target="_blank">
+                            Read more in Google ...
+                            <span class="icon is-small"><i class="fas fa-book-open"></i></span>
+                        </a>
+
+                    </div>
+                </nav>
+            </div>
+            <div class="media-right">
+                <button class="delete is-medium"></button>
+            </div>
+        </article>
+
+    </div>
+</section>

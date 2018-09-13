@@ -1,0 +1,39 @@
+<div class="column is-6 is-4-widescreen is-flex shuffle-item shuffle-item--visible"
+     data-maturaty-rating={{book.maturityRating}}
+             <div class="card is-storyworld">
+    <a class="card-header" href="/library/thomas-and-the-new-world">
+        <div class="card-image"
+             style="background-image: url({{book.thumbnail}}); ">
+        </div>
+    </a>
+    <div class="card-body">
+        <a href="/library/thomas-and-the-new-world">
+            <div class="card-title"> {{book.title}} </div>
+        </a>
+        <div class="card-meta">
+            <i class="icon-user"></i>{{book.maturityRating}}
+        </div>
+        <div class="card-description">
+            <p>{{book.description}}
+            </p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="button is-primary is-outlined" href="/library/thomas-and-the-new-world">More</a>
+    </div>
+</div>
+</div>
+
+<div class="column is-2 profile-like-book"><a href="/books/gabriel-garcia-marquez">
+    <div class="box book hvr-glow"
+         style="background-image: url({{book.link}});"></div>
+</a>
+    <p class="subtitle"><a class="button is-outlined"><span class="icon book-save-icon"><i
+            class="fa fa-plus"></i></span> <span class="small-span">SAVE</span></a> <a class="button is-outlined"><span
+            class="icon book-save-icon"><i class="fa fa-heart"></i></span> <span class="small-span">0</span></a> <a
+            class="button is-outlined" style="display: none;"><span class="icon"><i class="fa fa-times"></i></span></a>
+    </p> <h4 class="title book-title" style="margin-top: -0.7rem;">{{book.authors}}</h4>
+    <p class="subtitle book-subtitle"><span>
+            Gerald Martin<!----></span>
+    </p>
+</div>

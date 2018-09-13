@@ -89,4 +89,10 @@ padding-top: 0%;
 .box1 {
   width: 80%;
   height: 100px;
+
+/*Search*/
+.hero.is-primary.is-bold {
+  background: url("../styles/images/sharebooks.jpg") no-repeat fixed;
+  background-size: cover;
+  opacity: 0.65;
 }
