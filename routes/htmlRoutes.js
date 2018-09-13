@@ -6,16 +6,16 @@ module.exports = function(app) {
     db.Book.findAll({}).then(function(dbBooks) {
       res.render("index", {
         msg: "Catchy Book Share Title",
-        examples: dbBooks
+        books: dbBooks
       });
     });
   });
 
   // Load example page and pass in an example by id
-  app.get("/bookInfo/:id", function(req, res) {
+  app.get("/books/:id", function(req, res) {
     db.Book.findOne({ where: { id: req.params.id } }).then(function(dbBook) {
       res.render("bookInfo", {
-        example: dbExample
+        books: dbBook
       });
     });
   });
@@ -23,10 +23,10 @@ module.exports = function(app) {
   //Load author page
   app.get("/authors/:authorId", function(req, res) {
     db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(
-      dbBook
+      dbBooks
     ) {
       res.render("authors", {
-        books: dbBook
+        books: dbBooks
       });
     });
   });
