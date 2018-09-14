@@ -11,7 +11,7 @@ var register = function(Handlebars) {
     imageTag: function(url) {
       var pTag = "<p class='image is-128x128'>";
       var imageTag = pTag + "<img src=";
-      if (url === undefined || url === "" || url.length === 0) {
+      if (url === undefined || url === null || url === "" || url.length === 0) {
         url = "https://bulma.io/images/placeholders/128x128.png";
       }
       imageTag += "'" + url + "'></p>";

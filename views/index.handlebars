@@ -1,4 +1,4 @@
-<div section>
+<div class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
@@ -19,7 +19,7 @@
               <article class="media">
                 <div class="media-left">
                   <figure class="image is-64x64">
-                    <img src={{link href=book-cover.url class="bookImg"}} />
+                    <img src={{imageTag imgURL}} />
                   </figure>
                 </div>
                 <div class="media-content">
@@ -45,12 +45,13 @@
               </article>
             </div>
         {{/each}}
-
-        <footer class="footer">
-          <div class="content has-text-centered">
-            <p>
-              <a href="">CGKP</a>
-            </p>
+        <footer class="footer section is medium">
+          <div class="container">
+            <div class="content has-text-centered">
+              <p>
+                <a href="">CGKP</a>
+              </p>
+            </div>
           </div>
         </footer>
       </div>

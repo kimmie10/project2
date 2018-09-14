@@ -1,13 +1,91 @@
-<div class="card">
-  <div class="card-content">
-    <p class="title">Book Information</p>
-    <p>
-      <strong>ID</strong>: {{books.id}}</p>
-
-      <p>
-        <strong>Book Title</strong>: {{books.title}}</p>
-      <p>
-        <strong>Description:</strong> {{books.summary}}</p>
-      <a href="/">← Back To Home</a>
-  </div>
-</div>
+<div class="app-container">
+  <header class="app-header">
+    <nav class="navbar is-fixed-top">
+      <div class="container">
+        <div class="navbar-brand">
+          <div class="navbar-item">
+            <a class="brand" href="/">
+              <div class="brand-icon">
+                <img alt="Book with CGKP" role="presentation" src="/styles/images/book-161128_1280.png">
+              </div>
+              <div class="brand-content">
+                <div class="brand-title"> BIBLIOTECA </div>
+                <div class="brand-subtitle">CGKP</div>
+              </div>
+            </a>
+          </div>
+          <div class="navbar-burger burger" data-target="mainNav"> <span></span><span></span><span></span> </div>
+        </div>
+        <div class="navbar-menu" id="mainNav">
+          <div class="navbar-end">
+            <a href="/" class="navbar-item ">Home</a>
+            <a href="" class="navbar-item is-active">{{books.title}}</a>
+            <div class="navbar-item">
+              <a href="https://www.amazon.com" class="app-store-badge" target="_blank">
+                <img role="presentation" src="/styles/images/amazon.gif"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="app-content">
+    <section class="section is-bookInfo">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-10">
+            <div class="columns">
+              <div class="column is-2">
+                <div class="is-hidden-mobile">
+                  <hr class="spacer is-6">
+                  <div class="menu">
+                    <p class="menu-label"> Quick links </p>
+                    <ul class="menu-list">
+                      <li> <a href="#summary">Summary</a> </li>
+                      <li> <a href="#iNumber">ISBN</a> </li>
+                      <li> <a href="#author">Author</a> </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-8">
+                {{!-- <nav class="breadcrumb is-medium">
+                  <ul>
+                    <li> <a href="/views/authors_books"><i class="icon icon-grid is-small"></i><span>Author's Books</span></a>
+                    </li>
+                    <li> <a href="/views/books_categories"><span>Books in this Genre</span></a> </li>
+                    <li class="is-active"> <a href="#"><span>{{books.title}}</span></a> </li>
+                  </ul>
+                </nav> --}}
+                <div class="section-header" id="summary">
+                  <h1 class="title is-1 is-spaced"> {{books.title}} </h1>
+                  <div class="subtitle is-4">
+                    <p>{{books.summary}}</p>
+                  </div>
+                  <div class="field is-grouped">
+                    <div class="control">
+                      <a class="button is-facebook" href="https://www.facebook.com">
+                        <span class="icon">
+                          <i class="fab fa-facebook-f">&nbsp; Share</i>
+                        </span>
+                      </a>
+                    </div>
+                    <div class="control">
+                      <a class="button is-twitter" href="https://twitter.com">
+                        <span class="icon">
+                          <i class="">&nbsp; Share</i>
+                        </span>
+                      </a>
+                    </div>
+                    <div class="control">
+                      <a class="button is-pinterest" href="https://pinterest.com">
+                        <span class="icon">
+                          <i class="">Share</i>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="section-media"> <img src={{books.url}}>
+                  </div>
+                </div>
+              </div>

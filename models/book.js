@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       authorId: DataTypes.INTEGER,
       ISBN: DataTypes.INTEGER,
       readMoreGoogleLink: DataTypes.STRING,
-      ISBNS: { type: DataTypes.JSON, allowNull: true }
+      ISBNS: { type: DataTypes.JSON, allowNull: true },
+      imgURL: DataTypes.STRING
     },
     {}
   );
