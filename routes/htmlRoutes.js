@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Book.findAll({}).then(function(dbBooks) {
       res.render("index", {
-        msg: "Catchy Book Share Title",
+        msg: "BIBLIOTECA",
         books: dbBooks
       });
     });
