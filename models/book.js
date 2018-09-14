@@ -4,18 +4,26 @@ module.exports = (sequelize, DataTypes) => {
     "Book",
     {
       title: { type: DataTypes.STRING, allowNull: false },
-      summary: DataTypes.TEXT,
+      description: DataTypes.TEXT,
+      publisher: DataTypes.STRING,
       publishedDate: DataTypes.DATE,
       authorId: DataTypes.INTEGER,
-      ISBN: DataTypes.INTEGER,
-      readMoreGoogleLink: DataTypes.STRING,
-      ISBNS: { type: DataTypes.JSON, allowNull: true },
-      imgURL: DataTypes.STRING
+      isbn: DataTypes.INTEGER,
+      googleLink: DataTypes.STRING,
+      googleId: DataTypes.STRING,
+      isbns: { type: DataTypes.JSON, allowNull: true },
+      imageUrl: DataTypes.STRING,
+      ratingsCount: DataTypes.INTEGER
     },
     {}
   );
-  Book.associate = function(/*_models*/) {
+  Book.associate = models => {
     // associations can be defined here
+    models.Book.belongsToMany(models.Category, {
+      through: "category_books",
+      as: "categories",
+      foreignKey: "bookId"
+    });
   };
   return Book;
 };

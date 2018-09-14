@@ -23,8 +23,41 @@ module.exports = function(app) {
 
   // Create a new book
   app.post("/api/books", function(req, res) {
-    db.Book.create(req.body).then(function(dbBook) {
-      res.json(dbBook);
+    const bookInfo = req.body;
+    let categoriesInfo = bookInfo.categories.split(",");
+    // let authorsInfo = bookInfo.authors.split(",");
+    // let isbns = bookInfo.isbns;
+
+    delete bookInfo.categories;
+    delete bookInfo.authors;
+
+    // either find a category with name or create a new one
+    categoriesInfo.map(categoryName =>
+      db.Category.findOrCreate({
+        where: { name: categoryName }
+      })
+    );
+
+    db.Book.findOne({
+      where: { googleId: bookInfo.googleId, title: bookInfo.title }
+    }).then(function(dbBook) {
+      if (dbBook === null) {
+        db.Book.create(bookInfo).then(function(dbBook) {
+          categoriesInfo.map(name =>
+            db.Category.findOne({
+              where: { name: name }
+            }).then(function(category) {
+              category.addBook(dbBook);
+            })
+          );
+          res.json(dbBook);
+        });
+      } else {
+        console.log("We have that book!");
+        res.json({
+          msg: "Book " + dbBook.title + "was previously added. Thank you !"
+        });
+      }
     });
   });
 
@@ -39,7 +72,7 @@ module.exports = function(app) {
     let title = req.params.title;
     googleBooks.search(title, options, function(error, results) {
       if (!error) {
-        console.log(results);
+        console.log(results[0].industryIdentifiers);
       } else {
         console.log(error);
       }

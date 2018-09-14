@@ -1,6 +1,7 @@
 // Get references to page elements
 var $searchBookValue = $("#search-value");
 var $searchBtn = $("#search");
+var $addBtn = $("#addBook");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -28,6 +29,14 @@ var API = {
   }
 };
 
+var createBook = function(bookInfo) {
+  // console.log(bookInfo.author);
+  // console.log(bookInfo.categories);
+  API.saveBook(bookInfo);
+
+}
+
+
 var searchBooks = function(event) {
   event.preventDefault();
 
@@ -50,3 +59,10 @@ var searchBooks = function(event) {
 // Add event listeners to the submit button
 //Google Api seach
 $searchBtn.on("click", searchBooks);
+
+$(document).on("click", "button#addBook", function(){
+  let bookInfo = $(this).data();
+  console.log(bookInfo);
+  console.log(bookInfo.isbns);
+  createBook(bookInfo);
+})
