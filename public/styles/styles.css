@@ -1,18 +1,29 @@
 html, body {
-  height: 100%;
-  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-section, .card, #home {
-  /*min-height: 100%;*/
-  /*margin-bottom: -50px;*/
+.wrapper {
+  flex: 1;
+  margin-bottom: 20px;
 }
 
-/*.list-group-item {*/
-  /*line-height: 2.5;*/
-/*}*/
+/* .column {
+  margin-top: 50px;
+} */
 
-img {
+.is-bookInfo{
+  padding-top: 10rem;
+  margin-bottom: -50px;
+}
+
+/* .list-group-item {
+  line-height: 2.5;
+} */
+
+.navbar-item img, .level-item img {
+  max-height: 0%;
   width: 150px;
   height: 50px;
 }
@@ -33,9 +44,9 @@ img {
   text-align: center;
 }
 
-.level {
+/* .level {
   margin-top: 20px;
-}
+} */
 
 /*#chk, .chk {*/
   /*float: right;*/
@@ -60,15 +71,38 @@ li {
   margin-bottom: 50px;
   padding: 4px;
 }
- .card-content {
-text-align: center;
-background-color: blanchedalmond;
-padding-top: 0%;
+ /* .card-content {
+  text-align: center;
+  background-color: blanchedalmond;
+  padding-top: 0%;
+} */
+
+.button.is-facebook {
+    background-color: #3b5998;
+    border-color: transparent;
+    color: white;
+}
+
+.button {
+    font-size: 1.125rem;
+    height: 2.375em;
+    border-width: 12px;
+    padding-top: calc(0.375em - 2px);
+    padding-bottom: calc(0.375em - 2px);
+    padding-left: calc(0.875em - 2px);
+    padding-right: calc(0.875em - 2px);
+    font-weight: 500;
+    transition-duration: 86ms;
 }
 
 .footer {
   background-color: rgb(250, 239, 239);
-  height: 50px;
+  position: absolute;
+  margin-top: 50px;
+}
+
+p {
+  text-overflow: clip;
 }
 
 .flex-parent {

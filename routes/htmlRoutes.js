@@ -3,7 +3,9 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Book.findAll({}).then(function(dbBooks) {
+    db.Book.findAll({
+      //put a order by hearts score
+    }).then(function(dbBooks) {
       res.render("index", {
         msg: "BIBLIOTECA",
         books: dbBooks
