@@ -5,7 +5,9 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Book.findAll({}).then(function(dbBooks) {
       res.render("index", {
-        msg: "Catchy Book Share Title",
+
+        msg: "BIBLIOTECA",
+
         books: dbBooks
       });
     });
@@ -32,7 +34,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 };

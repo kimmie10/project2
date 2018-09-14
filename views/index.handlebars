@@ -1,4 +1,4 @@
-<div id="home">
+<div section>
   <div class="container">
     <div class="columns is-centered">
       <div class="column">
@@ -10,15 +10,11 @@
           <div class="level-item has-text-centered">
             <h1>{{msg}}</h1>
           </div>
-          <br class="br" style="margin-bottom: 0;">
-          <form class="field" action="POST">
-            <div class="control">
-              <label for="search-field">Add Book</label>
-              <input type="text" id="example-text" class="input is-primary" aria-describedby="search-field" placeholder="Select by Author or Title">
-            </div>
-            <button id="submit" class="button is-primary is-small">Submit</button>
-          </form>
+          <div class="level-item has-text-centered">
+            <a href="#search-value"><button class="button is-link">Add A Book</button></a>
+          </div>
         </nav>
+        {{#each books}}
         <div class="box">
           <article class="media">
             <div class="media-left" id="book-cover">
@@ -35,31 +31,6 @@
         </div>
         <div class="box">
           <article class="media">
-            <div class="media-left flex-child">
-              <figure class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Book Cover Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>Book Title</strong>
-                  <br>
-                  Book Details, Author, Plot etc.
-                </p>
-              </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="like">
-                    <span class="icon is-small">
-                      <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </article>
-          <article class="media">
             <div class="media-left">
               <figure class="image is-64x64">
                 <img src="https://bulma.io/images/placeholders/128x128.png" alt="Book Cover Image">
@@ -87,15 +58,17 @@
           <article class="media">
             <div class="media-left">
               <figure class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Book Cover Image">
+                <img src={{link href=book-cover.url class="bookImg"}} />
               </figure>
             </div>
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>Book Title</strong>
+                  <strong>{{this.title}}</strong>
                   <br>
-                  Book Details, Author, Plot etc.
+                    {{ trimString this.summary}}
+                </p>
+
                 </p>
               </div>
               <nav class="level is-mobile">
@@ -110,24 +83,10 @@
             </div>
           </article>
         </div>
+        {{/each}}
 
-        <br class="br" style="margin-bottom: 0;">
-        <section class="section">
-          <div class="container">
-            <h2>Books:</h2>
-            <ul id="example-list" class="list-group">
-              {{#each bookss}}
-              <li data-id="{{this.id}}" class="list-group-item">
-                <a href="bookInfo/{{this.id}}">{{this.title}}</a>
-                <label class="checkbox">
-                  <input type="checkbox" id="chk" value="Add checkbox">
-                </label>
-                <button class="button is-danger is-small" id="remove">ｘ</button>
-              </li>
-              {{/each}}
-            </ul>
-          </div>
-        </section>
+        {{> search_form}}
+
         <footer class="footer">
           <div class="content has-text-centered">
             <p>
@@ -139,6 +98,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>

@@ -1,103 +1,62 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-//var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $searchBookValue = $("#search-value");
+var $searchBtn = $("#search");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveBook: function(book) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/books",
+      data: JSON.stringify(book)
     });
   },
-  getExamples: function() {
+  getBooks: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/books",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  googleSearchBook: function(query) {
     return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
+      url: "api/googlebooks/search/" + query.term,
+      type: "GET"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/bookInfo/" + example.id);
+// var handleData = function(resJSON) {
+//   console.log(resJSON);
+//   var templateSource = $("#template").html(),
+//     template = Handlebars.compile(templateSource),
+//     searchResutlHTML = template(resJSON);
+//   console.log(template(resJSON));
+//   console.log(searchResutlHTML);
+//   $("#results").html(searchResutlHTML);
+// };
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $checkbox = $("<input>")
-        .attr({ type: "checkbox", name: "chk" })
-        .addClass("chk");
-
-      var $button = $("<button>").addClass("button is-danger is-small delete");
-      //.text("ｘ");
-
-      $li.append($checkbox);
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var searchBooks = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim()
-    //description: $exampleDescription.val().trim()
+  var query = {
+    term: $searchBookValue.val().trim()
   };
 
-  if (!example.text /*&& example.description*/) {
-    alert("You must enter an example text and description!");
+  if (!query.term) {
+    alert("You must enter book's title and/or author !");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.googleSearchBook(query).then(function(data) {
+    console.log(data);
+    return data;
   });
-
-  $exampleText.val("");
-  //$exampleDescription.val("");
+  $searchBookValue.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// Add event listeners to the submit button
+//Google Api seach
+$searchBtn.on("click", searchBooks);
