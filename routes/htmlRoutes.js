@@ -20,6 +20,17 @@ module.exports = function(app) {
     });
   });
 
+  //Load author page
+  app.get("/authors/:authorId", function(req, res) {
+    db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(
+      dbBooks
+    ) {
+      res.render("authors", {
+        books: dbBooks
+      });
+    });
+  });
+
   // Render 404 page for any unmatched routes
   // app.get("*", function(req, res) {
   //   res.render("404");

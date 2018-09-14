@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-content">
+    <p class="title">Author Books</p>
+    <p>
+      {{!-- <strong>Author ID</strong>: {{author.id}}</p> --}}
+    <strong>Author ID</strong>: {{books.authorId}}
+    </p>
+    {{!--this may need to be book id and iterate through array objects with book ID --}}
+
+      <div>
+        {{!--
+        <div>{{Author}} --}} 
+          {{!-- {{#each books}} --}}
+          {{#each books}}
+            <p>
+              <strong>ID</strong>: {{this.id}}
+            </p>
+
+            <p>
+              <strong>Book Title</strong>: {{this.title}}
+            </p>
+            <p>
+              <strong>Description:</strong> {{this.summary}}
+            </p>
+
+          {{!-- {{/each}} --}}
+        </div>
+        {{/each}}
+        <a href="/">← Back To Home</a>
+      </div>
+  </div>
+  </div>
