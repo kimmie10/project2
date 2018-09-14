@@ -15,27 +15,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Handlebars
-// app.engine(
-//   "handlebars",
-//   exphbs({
-//     defaultLayout: "main"
-//   })
-// );
-
-var hbsHelpers = exphbs.create({
+// Create `ExpressHandlebars` instance with a default layout.
+var hbs = exphbs.create({
   helpers: require("./helpers/hsbHelpers.js").helpers,
-  defaultLayout: "main"
+  defaultLayout: "main",
+  // layoutsDir: __dirname + "/views/pages/",
+  partialsDir: __dirname + "/views/partials/"
+  // partialsDir: ["shared/templates/", "views/partials/"]
 });
 
-app.engine("handlebars", hbsHelpers.engine);
+// Register `hbs` as our view engine using its bound `engine()` function.
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-const syncOptions = { force: false };
+const syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

@@ -28,16 +28,6 @@ var API = {
   }
 };
 
-// var handleData = function(resJSON) {
-//   console.log(resJSON);
-//   var templateSource = $("#template").html(),
-//     template = Handlebars.compile(templateSource),
-//     searchResutlHTML = template(resJSON);
-//   console.log(template(resJSON));
-//   console.log(searchResutlHTML);
-//   $("#results").html(searchResutlHTML);
-// };
-
 var searchBooks = function(event) {
   event.preventDefault();
 
@@ -51,10 +41,10 @@ var searchBooks = function(event) {
   }
 
   API.googleSearchBook(query).then(function(data) {
-    console.log(data);
-    return data;
+    //Return the compiled data result into HTML .
+    $("#google-results").html(data);
   });
-  $searchBookValue.val("");
+  // $searchBookValue.val("");
 };
 
 // Add event listeners to the submit button

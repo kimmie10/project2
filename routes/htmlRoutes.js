@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get("/books/:id", function(req, res) {
     db.Book.findOne({ where: { id: req.params.id } }).then(function(dbBook) {
       res.render("bookInfo", {
-        books: dbBook
+        book: dbBook
       });
     });
   });
@@ -23,12 +23,16 @@ module.exports = function(app) {
   //Load author page
   app.get("/authors/:authorId", function(req, res) {
     db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(
-      dbBooks
+      author
     ) {
       res.render("authors", {
-        books: dbBooks
+        author: author
       });
     });
+  });
+
+  app.get("/search/", function(req, res) {
+    res.render("search");
   });
 
   // Render 404 page for any unmatched routes
