@@ -10,7 +10,7 @@
               </div>
               <div class="brand-content">
                 <div class="brand-title"> BIBLIOTECA </div>
-                <div class="brand-subtitle">CGKP</div>
+                <div class="brand-subtitle">CG KP</div>
               </div>
             </a>
           </div>
@@ -19,10 +19,11 @@
         <div class="navbar-menu" id="mainNav">
           <div class="navbar-end">
             <a href="/" class="navbar-item ">Home</a>
-            <a href="" class="navbar-item is-active">{{books.title}}</a>
+            <a href="bookInfo.handlebars" class="navbar-item is-active">{{books.title}}</a>
             <div class="navbar-item">
-              <a href="https://www.amazon.com" class="app-store-badge" target="_blank">
-                <img role="presentation" src="/styles/images/amazon.gif"></a>
+              <a href={{book.link}} data-google-link={{book.link}} target="_blank">
+                <img alt="Google Books" id="google" src="/styles/images/googleBooks.png">
+              </a>
             </div>
           </div>
         </div>
@@ -43,7 +44,7 @@
                     <ul class="menu-list">
                       <li> <a href="#summary">Summary</a> </li>
                       <li> <a href="#iNumber">ISBN</a> </li>
-                      <li> <a href="#author">Author</a> </li>
+                      <li> <a href="authors/{{authorId}}">Author</a> </li>
                     </ul>
                   </div>
                 </div>
@@ -58,7 +59,7 @@
                   </ul>
                 </nav> --}}
                 <div class="section-header" id="summary">
-                  <h1 class="title is-1 is-spaced"> {{books.title}} </h1>
+                  <h1 class="title is-1 is-spaced">{{books.title}}</h1>
                   <div class="subtitle is-4">
                     <p>{{books.summary}}</p>
                   </div>
@@ -73,14 +74,14 @@
                     <div class="control">
                       <a class="button is-twitter" href="https://twitter.com">
                         <span class="icon">
-                          <i class="">&nbsp; Share</i>
+                          <i class="fab fa-twitter">&nbsp; Share</i>
                         </span>
                       </a>
                     </div>
                     <div class="control">
                       <a class="button is-pinterest" href="https://pinterest.com">
                         <span class="icon">
-                          <i class="">Share</i>
+                          <i class="fab fa-pinterest-p">&nbsp; Share</i>
                         </span>
                       </a>
                     </div>
@@ -89,3 +90,19 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer is-small is-centered">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <a href="">CGKP</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>

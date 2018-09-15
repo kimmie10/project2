@@ -4,9 +4,8 @@ html, body {
   flex-direction: column;
 }
 
-.wrapper {
+section {
   flex: 1;
-  margin-bottom: 20px;
 }
 
 /* .column {
@@ -25,10 +24,9 @@ html, body {
 .navbar-item img, .level-item img {
   max-height: 0%;
   width: 150px;
-  height: 50px;
 }
 
-#logo {
+#logo, .brand-subtitle {
   position: absolute;
   top: 45%;
   left: 46%;
@@ -37,6 +35,14 @@ html, body {
   font-weight: 900;
   word-spacing: 30px;
   font-family: cursive;
+}
+
+.brand-title {
+  text-align: center;
+}
+
+.brand-icon {
+  margin-top: 20px;
 }
 
 .level-item {
@@ -63,36 +69,44 @@ html, body {
   /*margin-top: 2px;*/
 /*}*/
 
-li {
+/* li {
   background-color: azure;
   border-style: solid;
   border-color: lightgrey;
   border-width: 1px;
   margin-bottom: 50px;
   padding: 4px;
-}
+} */
  /* .card-content {
   text-align: center;
   background-color: blanchedalmond;
   padding-top: 0%;
 } */
 
-.button.is-facebook {
-    background-color: #3b5998;
+.button.is-facebook, .button.is-twitter, .button.is-pinterest {
     border-color: transparent;
     color: white;
-}
-
-.button {
     font-size: 1.125rem;
     height: 2.375em;
-    border-width: 12px;
+    border-width: 15px;
     padding-top: calc(0.375em - 2px);
     padding-bottom: calc(0.375em - 2px);
     padding-left: calc(0.875em - 2px);
     padding-right: calc(0.875em - 2px);
     font-weight: 500;
     transition-duration: 86ms;
+}
+
+.button.is-facebook {
+  background-color: #3b5998;
+}
+
+.button.is-twitter {
+  background-color: #1da1f2;
+}
+
+.button.is-pinterest {
+  background-color: #bd081c;
 }
 
 .footer {
@@ -123,6 +137,7 @@ p {
 .box1 {
   width: 80%;
   height: 100px;
+}
 
 /*Search*/
 .hero.is-primary.is-bold {

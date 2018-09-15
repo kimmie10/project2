@@ -15,6 +15,7 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/books/:id", function(req, res) {
+    console.log(req.params);
     db.Book.findOne({ where: { id: req.params.id } }).then(function(dbBook) {
       res.render("bookInfo", {
         book: dbBook
@@ -28,7 +29,7 @@ module.exports = function(app) {
       author
     ) {
       res.render("authors", {
-        author: author
+        authors: author
       });
     });
   });

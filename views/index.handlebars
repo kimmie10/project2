@@ -11,7 +11,7 @@
             <h1>{{msg}}</h1>
           </div>
           <div class="level-item has-text-centered">
-            <a href="#search-value"><button class="button is-link">Add A Book</button></a>
+            <a href="./search"><button class="button is-link">Add A Book</button></a>
           </div>
         </nav>
         {{#each books}}
@@ -25,7 +25,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <strong>{{this.title}}</strong>
+                      <a href="books/{{this.id}}"><strong>{{this.title}}</strong></a>  
                       <br>
                         {{ trimString this.summary}}
                     </p>
@@ -45,7 +45,7 @@
               </article>
             </div>
         {{/each}}
-        <footer class="footer section is medium">
+        <footer class="footer is-small">
           <div class="container">
             <div class="content has-text-centered">
               <p>
