@@ -13,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       googleId: DataTypes.STRING,
       isbns: { type: DataTypes.JSON, allowNull: true },
       imageUrl: DataTypes.STRING,
-      ratingsCount: DataTypes.INTEGER
+      ratingsCount: DataTypes.INTEGER,
+      averageRating: DataTypes.INTEGER,
+      pageCount: DataTypes.INTEGER
     },
     {}
   );

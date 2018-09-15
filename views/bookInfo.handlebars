@@ -19,7 +19,7 @@
         <div class="navbar-menu" id="mainNav">
           <div class="navbar-end">
             <a href="/" class="navbar-item ">Home</a>
-            <a href="bookInfo.handlebars" class="navbar-item is-active">{{books.title}}</a>
+            <a href="bookInfo.handlebars" class="navbar-item is-active">{{book.title}}</a>
             <div class="navbar-item">
               <a href={{book.link}} data-google-link={{book.link}} target="_blank">
                 <img alt="Google Books" id="google" src="/styles/images/googleBooks.png">
@@ -59,9 +59,9 @@
                   </ul>
                 </nav> --}}
                 <div class="section-header" id="summary">
-                  <h1 class="title is-1 is-spaced">{{books.title}}</h1>
+                  <h1 class="title is-1 is-spaced">{{book.title}}</h1>
                   <div class="subtitle is-4">
-                    <p>{{books.summary}}</p>
+                    <p>{{book.summary}}</p>
                   </div>
                   <div class="field is-grouped">
                     <div class="control">
