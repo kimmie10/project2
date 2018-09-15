@@ -18,10 +18,8 @@
         </div>
         <div class="navbar-menu" id="mainNav">
           <div class="navbar-end">
-            <a href="/" class="navbar-item ">Home</a>
-            <a href="bookInfo.handlebars" class="navbar-item is-active">{{book.title}}</a>
             <div class="navbar-item">
-              <a href={{book.link}} data-google-link={{book.link}} target="_blank">
+              <a href={{book.googleLink}} data-google-link={{book.googleLink}} target="_blank">
                 <img alt="Google Books" id="google" src="/styles/images/googleBooks.png">
               </a>
             </div>
@@ -42,28 +40,23 @@
                   <div class="menu">
                     <p class="menu-label"> Quick links </p>
                     <ul class="menu-list">
-                      <li> <a href="#summary">Summary</a> </li>
-                      <li> <a href="#iNumber">ISBN</a> </li>
-                      <li> <a href="authors/{{authorId}}">Author</a> </li>
+                      {{!-- <li> <a href="#summary">Summary</a> </li> --}}
+                      <li> <a href="#share">Share</a> </li>
+                      <li> <a href="authors/{{authors_book.id}}">Author</a> </li>
                     </ul>
                   </div>
                 </div>
               </div>
               <div class="column is-8">
-                {{!-- <nav class="breadcrumb is-medium">
-                  <ul>
-                    <li> <a href="/views/authors_books"><i class="icon icon-grid is-small"></i><span>Author's Books</span></a>
-                    </li>
-                    <li> <a href="/views/books_categories"><span>Books in this Genre</span></a> </li>
-                    <li class="is-active"> <a href="#"><span>{{books.title}}</span></a> </li>
-                  </ul>
-                </nav> --}}
                 <div class="section-header" id="summary">
                   <h1 class="title is-1 is-spaced">{{book.title}}</h1>
                   <div class="subtitle is-4">
-                    <p>{{book.summary}}</p>
+                    <div class="section-media">
+                      <img src={{book.imageUrl}}>
+                    </div>
+                    <p>{{book.description}}</p>
                   </div>
-                  <div class="field is-grouped">
+                  <div class="field is-grouped" id="share">
                     <div class="control">
                       <a class="button is-facebook" href="https://www.facebook.com">
                         <span class="icon">
@@ -85,8 +78,6 @@
                         </span>
                       </a>
                     </div>
-                  </div>
-                  <div class="section-media"> <img src={{books.url}}>
                   </div>
                 </div>
               </div>
