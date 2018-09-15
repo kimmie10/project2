@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       title: { type: DataTypes.STRING, allowNull: false },
       description: DataTypes.TEXT,
       publisher: DataTypes.STRING,
-      publishedDate: DataTypes.DATE,
+      publishedDate: { type: DataTypes.DATE, allowNull: true },
       authorId: DataTypes.INTEGER,
       isbn: DataTypes.INTEGER,
       googleLink: DataTypes.STRING,
@@ -18,10 +18,17 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Book.associate = models => {
-    // associations can be defined here
-    models.Book.belongsToMany(models.Category, {
+    Book.belongsToMany(models.Category, {
+      onDelete: "CASCADE",
       through: "category_books",
       as: "categories",
+      foreignKey: "bookId"
+    });
+
+    Book.belongsToMany(models.Author, {
+      onDelete: "CASCADE",
+      through: "author_books",
+      as: "authors",
       foreignKey: "bookId"
     });
   };

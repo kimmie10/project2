@@ -5,7 +5,7 @@ var $addBtn = $("#addBook");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveBook: function(book) {
+  saveBook: function(book, bookDiv) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -13,6 +13,11 @@ var API = {
       type: "POST",
       url: "api/books",
       data: JSON.stringify(book)
+    }).then(function(result) {
+      console.log(result);
+      var article = $("article").find(result.googleId).css('display', 'none');
+      // document.getElementById(result.googleId);
+      // article.style.visibility = "hidden";
     });
   },
   getBooks: function() {
@@ -29,10 +34,10 @@ var API = {
   }
 };
 
-var createBook = function(bookInfo) {
+var createBook = function(bookInfo, bookDiv) {
   // console.log(bookInfo.author);
   // console.log(bookInfo.categories);
-  API.saveBook(bookInfo);
+  API.saveBook(bookInfo, bookDiv);
 
 }
 
@@ -61,8 +66,9 @@ var searchBooks = function(event) {
 $searchBtn.on("click", searchBooks);
 
 $(document).on("click", "button#addBook", function(){
-  let bookInfo = $(this).data();
+  let bookDiv = $(this)
+  let bookInfo = bookDiv.data();
   console.log(bookInfo);
   console.log(bookInfo.isbns);
-  createBook(bookInfo);
+  createBook(bookInfo,bookDiv);
 })

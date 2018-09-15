@@ -25,38 +25,46 @@ module.exports = function(app) {
   app.post("/api/books", function(req, res) {
     const bookInfo = req.body;
     let categoriesInfo = bookInfo.categories.split(",");
-    // let authorsInfo = bookInfo.authors.split(",");
+    let authorsInfo = bookInfo.authors.split(",");
     // let isbns = bookInfo.isbns;
 
     delete bookInfo.categories;
     delete bookInfo.authors;
 
     // either find a category with name or create a new one
-    categoriesInfo.map(categoryName =>
+    const categories = categoriesInfo.map(categoryName =>
       db.Category.findOrCreate({
         where: { name: categoryName }
-      })
+      }).spread((category, created) => category)
+    );
+
+    // either find a author with name or create a new one
+    const authors = authorsInfo.map(authorName =>
+      db.Author.findOrCreate({
+        where: { name: authorName }
+      }).spread((author, created) => author)
     );
 
     db.Book.findOne({
       where: { googleId: bookInfo.googleId, title: bookInfo.title }
     }).then(function(dbBook) {
-      if (dbBook === null) {
-        db.Book.create(bookInfo).then(function(dbBook) {
-          categoriesInfo.map(name =>
-            db.Category.findOne({
-              where: { name: name }
-            }).then(function(category) {
-              category.addBook(dbBook);
-            })
-          );
-          res.json(dbBook);
+      if (dbBook !== null) {
+        console.log("We have that book in Biblioteca!");
+        res.json({
+          msg: "Book " + dbBook.title + "was previously added. Thank you!!"
         });
       } else {
-        console.log("We have that book!");
-        res.json({
-          msg: "Book " + dbBook.title + "was previously added. Thank you !"
-        });
+        db.Book.create(bookInfo)
+          .then(newBook =>
+            Promise.all(categories)
+              .then(storedCategories => newBook.addCategories(storedCategories))
+              .then(() => newBook)
+          )
+          .then(function(createdBook) {
+            Promise.all(authors).then(storedAuthors =>
+              createdBook.addAuthors(storedAuthors)
+            );
+          });
       }
     });
   });
@@ -72,7 +80,7 @@ module.exports = function(app) {
     let title = req.params.title;
     googleBooks.search(title, options, function(error, results) {
       if (!error) {
-        console.log(results[0].industryIdentifiers);
+        console.log(results);
       } else {
         console.log(error);
       }
