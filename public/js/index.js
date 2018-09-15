@@ -15,7 +15,9 @@ var API = {
       data: JSON.stringify(book)
     }).then(function(result) {
       console.log(result);
-      var article = $("article").find(result.googleId).css('display', 'none');
+      var article = $("article")
+        .find(result.googleId)
+        .css("display", "none");
       // document.getElementById(result.googleId);
       // article.style.visibility = "hidden";
     });
@@ -38,9 +40,7 @@ var createBook = function(bookInfo, bookDiv) {
   // console.log(bookInfo.author);
   // console.log(bookInfo.categories);
   API.saveBook(bookInfo, bookDiv);
-
-}
-
+};
 
 var searchBooks = function(event) {
   event.preventDefault();
@@ -65,10 +65,10 @@ var searchBooks = function(event) {
 //Google Api seach
 $searchBtn.on("click", searchBooks);
 
-$(document).on("click", "button#addBook", function(){
-  let bookDiv = $(this)
+$(document).on("click", "button#addBook", function() {
+  let bookDiv = $(this);
   let bookInfo = bookDiv.data();
   console.log(bookInfo);
   console.log(bookInfo.isbns);
-  createBook(bookInfo,bookDiv);
-})
+  createBook(bookInfo, bookDiv);
+});
