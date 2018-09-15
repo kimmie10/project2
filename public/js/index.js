@@ -14,13 +14,9 @@ var API = {
       url: "api/books",
       data: JSON.stringify(book)
     }).then(function(result) {
+      console.log("Saved!")
       console.log(result);
-      var article = $("article")
-        .find(result.googleId)
-        .css("display", "none");
-
-      // document.getElementById(result.googleId);
-      // article.style.visibility = "hidden";
+      var article = document.getElementById(result.googleId);
     });
   },
   getBooks: function() {
@@ -38,8 +34,6 @@ var API = {
 };
 
 var createBook = function(bookInfo) {
-  // console.log(bookInfo.author);
-  // console.log(bookInfo.categories);
   API.saveBook(bookInfo);
 };
 
@@ -69,20 +63,19 @@ $searchBtn.on("click", searchBooks);
 $(document).on("click", "button#addBook", function() {
   let bookDiv = $(this);
   let bookInfo = bookDiv.data();
-  console.log(bookInfo);
-  console.log(bookInfo.isbns);
+  console.log(bookDiv);
   createBook(bookInfo, bookDiv);
 });
 
 $(document).on("click", "button.delete", function() {
   let deleteDiv = $(this);
+  console.log(deleteDiv.id);
 });
 
 $searchBookValue.keypress(function(e) {
   if (e.keyCode === 13) {
     console.log("You pressed enter!");
     e.preventDefault();
-
     var input = {
       term: $searchBookValue.val().trim()
     };

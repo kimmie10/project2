@@ -84,22 +84,6 @@
 
 .footer {
   background-color: rgb(250, 239, 239);
-  margin-top: 100px;
-}
-
-.flex-parent {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin: 30px 0;
-}
-
-.flex-child {
-  white-space: nowrap;
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .box1 {
@@ -116,4 +100,10 @@
 
 .book-info article {
     border-bottom: 1px solid #ccc;
+}
+
+.search h4.subtitle {
+    color: #00004d;
+    font-weight: bold;
+    font-size: 1.75rem;
 }
