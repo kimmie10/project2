@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "JodahIs100%OP",
+    "password": "",
     "host": "localhost",
     "database": "biblioteca_development",
     "dialect": "mysql"
