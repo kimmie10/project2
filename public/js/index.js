@@ -72,3 +72,19 @@ $(document).on("click", "button#addBook", function() {
   console.log(bookInfo.isbns);
   createBook(bookInfo, bookDiv);
 });
+
+$searchBookValue.keypress(function(e) {
+  if (e.keyCode === 13) {
+    console.log("You pressed enter!");
+    e.preventDefault();
+
+    var input = {
+      term: $searchBookValue.val().trim()
+    };
+
+    API.googleSearchBook(input).then(function(data) {
+      //Return the compiled data result into HTML .
+      $("#google-results").html(data);
+    });
+  }
+});
