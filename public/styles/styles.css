@@ -1,11 +1,14 @@
-html, body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+.navbar {
+  background-image: url(../images/sharebooks.jpg);
 }
 
-section {
-  flex: 1;
+#main {
+  padding: 30px;
+}
+
+.section-media {
+  float: right;
+  margin-left: 20px;
 }
 
 .is-bookInfo{
@@ -20,21 +23,28 @@ section {
 
 #logo, .brand-subtitle {
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 46%;
   transform: translate(-50%, -50%);
   z-index: 1;
   font-weight: 900;
   word-spacing: 30px;
   font-family: cursive;
+  color: black;
 }
 
-.brand-title {
+.brand-title, h1 {
   text-align: center;
+  color: black;
+  font-size: xx-large;
 }
 
 .brand-icon {
   margin-top: 20px;
+}
+
+#summary {
+  margin-top: 30px;
 }
 
 .level-item {
@@ -42,49 +52,16 @@ section {
   text-align: center;
 }
 
-/* .level {
-  margin-top: 20px;
-} */
-
-/*#chk, .chk {*/
-  /*float: right;*/
-  /*margin-left: 5px;*/
-  /*margin-top: 5px;*/
-/*}*/
-
-/*#remove, .button.is-danger {*/
-  /*float: right;*/
-  /*margin: 2px;*/
-/*}*/
-
-/*button {*/
-  /*margin-top: 2px;*/
-/*}*/
-
-/* li {
-  background-color: azure;
-  border-style: solid;
-  border-color: lightgrey;
-  border-width: 1px;
-  margin-bottom: 50px;
-  padding: 4px;
-} */
- /* .card-content {
-  text-align: center;
-  background-color: blanchedalmond;
-  padding-top: 0%;
-} */
-
 .button.is-facebook, .button.is-twitter, .button.is-pinterest {
     border-color: transparent;
     color: white;
     font-size: 1.125rem;
     height: 2.375em;
     border-width: 15px;
-    padding-top: calc(0.375em - 2px);
-    padding-bottom: calc(0.375em - 2px);
-    padding-left: calc(0.875em - 2px);
-    padding-right: calc(0.875em - 2px);
+    padding-top: calc(0.375em - 1px);
+    padding-bottom: calc(0.375em - 1px);
+    padding-left: 30px;
+    padding-right:30px;
     font-weight: 500;
     transition-duration: 86ms;
 }
@@ -103,12 +80,7 @@ section {
 
 .footer {
   background-color: rgb(250, 239, 239);
-  position: absolute;
-  margin-top: 50px;
-}
-
-p {
-  text-overflow: clip;
+  margin-top: 100px;
 }
 
 .flex-parent {
