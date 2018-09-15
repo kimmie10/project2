@@ -1,63 +1,62 @@
 <section class="hero has-background-light">
-
-    <div class="hero-body">
-        <nav class="level">
-            <div class="level-item">
-                <img src="/styles/images/book-161128_1280.png" alt="Image of Book with Logo CGKP">
-                <div id="logo">CG KP</div>
-            </div>
-            <div class="level-item has-text-centered">
-                <h1 class="title is-1">{{msg}}</h1>
-            </div>
-            <div class="level-item has-text-centered">
-                <a href="./search">
-                    <button class="button is-link">Add A Book</button>
-                </a>
-            </div>
-        </nav>
-    </div>
+  <div class="hero-body">
+    <nav class="level">
+      <div class="level-item">
+        <img src="/styles/images/book-161128_1280.png" alt="Image of Book with Logo CGKP">
+        <div id="logo">CG KP</div>
+      </div>
+      <div class="level-item has-text-centered">
+        <h1 class="title is-1">{{msg}}</h1>
+      </div>
+      <div class="level-item has-text-centered">
+        <a href="./search">
+          <button class="button is-link">Add A Book</button>
+        </a>
+      </div>
+    </nav>
+  </div>
 </section>
-<div class="section">
+  <div class="section">
     <div class="container">
-        <div class="columns is-centered">
-            <div class="column">
-                {{#each books}}
-                    <div class="box">
-                        <article class="media">
-                            <figure class="media-left">
-                                {{{imageTag this.imageUrl}}}
-                            </figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <h3 class="tile is-3-mobile">
-                                        <a href="books/{{this.id}}"><strong>{{this.title}}</strong></a>
-                                    </h3>
-                                    <br>
-                                    {{ trimString this.description}}
-                                </div>
-                                <nav class="level is-mobile">
-                                    <div class="level-left">
-                                        <a class="level-item" aria-label="like">
-                        <span class="icon is-small">
-                          <i class="fas fa-heart" aria-hidden="true"></i>
-                        </span>
-                                        </a>
-                                    </div>
-                                </nav>
-                            </div>
-                        </article>
-                    </div>
-                {{/each}}
-                <footer class="footer is-small">
-                    <div class="container">
-                        <div class="content has-text-centered">
-                            <p>
-                                <a href="">CGKP</a>
-                            </p>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+      <div class="columns is-centered">
+        <div class="column">
+          {{#each books}}
+          <div class="box">
+            <article class="media">
+              <figure class="media-left">
+                {{{imageTag this.imageUrl}}}
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h3 class="tile is-3-mobile">
+                    <a href="books/{{this.id}}"><strong>{{this.title}}</strong></a>
+                  </h3>
+                  <br>
+                  {{ trimString this.description}}
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item" aria-label="like">
+                      <span class="icon is-small">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </article>
+          </div>
+          {{/each}}
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  <footer class="footer is-small">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <a href="">CGKP</a>
+        </p>
+      </div>
+    </div>
+  </footer>

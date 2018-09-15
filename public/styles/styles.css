@@ -39,6 +39,10 @@
   font-size: xx-large;
 }
 
+.title {
+  color: black;
+}
+
 .brand-icon {
   margin-top: 20px;
 }
