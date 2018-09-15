@@ -1,32 +1,58 @@
 <div class="card">
   <div class="card-content">
     <p class="title">Author Books</p>
+
+    {{!-- {{#if books}}
     <p>
-      {{!-- <strong>Author ID</strong>: {{author.id}}</p> --}}
-    <strong>Author ID</strong>: {{books.authorId}}
+     <strong>Author ID</strong>: {{author.id}}</p>
+    <strong>Author ID</strong>: {{this.authorId}}
     </p>
-    {{!--this may need to be book id and iterate through array objects with book ID --}}
+    {{/each}} 
+    --}}
 
-      <div>
-        {{!--
-        <div>{{Author}} --}} 
-          {{!-- {{#each books}} --}}
-          {{#each books}}
-            <p>
-              <strong>ID</strong>: {{this.id}}
-            </p>
+    {{!--this may need to be book id and iterate through array objects with book ID --}} {{!--
+    <div>
+      <div class="menu">
+        <p class="menu-label"> Quick links </p>
+        <ul class="menu-list">
+          <li> <a href="#summary">Summary</a> </li>
+          <li> <a href="#stories">Stories</a> </li>
+          <li> <a href="#author">Author Notes</a> </li>
+        </ul>
+      </div> --}} {{!--
+      <div>{{Author}} --}} {{!-- {{#each books}} --}}
 
-            <p>
-              <strong>Book Title</strong>: {{this.title}}
-            </p>
-            <p>
-              <strong>Description:</strong> {{this.summary}}
-            </p>
-
-          {{!-- {{/each}} --}}
-        </div>
-        {{/each}}
+        <h2 class="title is-4">Books by Author</h2>
+        <section class="section is-storyworlds has-background is-medium">
+          <div class="columns">
+            {{#each books}}
+            <div class="column is-half">
+              <div class="card">
+                {{!--
+                <p>
+                  <strong>ID</strong>: {{this.id}}
+                </p> --}}
+                <p>
+                  {{!-- <strong>Author ID</strong>: {{author.id}}</p> --}}
+                <strong>Author ID</strong>: {{Author.name}}
+                </p>
+                <h3 class="title is-4"> {{book.title}} </h3>
+                {{!--
+                <p>
+                  <strong>Book Title</strong>: {{this.title}}
+                </p> --}}
+                <p>
+                  <strong>Description:</strong> {{book.description}}
+                </p>
+                <br>
+                <a href="../books/{{book.id}}" class="button is-link is-rounded">Book Info</a>
+                <br><br> {{!-- {{/each}} --}}
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </section>
         <a href="/">← Back To Home</a>
       </div>
-  </div>
+    </div>
   </div>

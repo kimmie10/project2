@@ -44,7 +44,8 @@
                     <ul class="menu-list">
                       <li> <a href="#summary">Summary</a> </li>
                       <li> <a href="#iNumber">ISBN</a> </li>
-                      <li> <a href="authors/{{authorId}}">Author</a> </li>
+                      <li> <a href="../authors/{{Author.id}}">Author</a> </li>
+                      {{!-- <li> <a href="authors/{{authorId}}">Author</a> </li> --}}
                     </ul>
                   </div>
                 </div>
@@ -61,7 +62,7 @@
                 <div class="section-header" id="summary">
                   <h1 class="title is-1 is-spaced">{{book.title}}</h1>
                   <div class="subtitle is-4">
-                    <p>{{book.summary}}</p>
+                    <p>{{book.description}}</p>
                   </div>
                   <div class="field is-grouped">
                     <div class="control">

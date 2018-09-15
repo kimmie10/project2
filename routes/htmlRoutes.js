@@ -24,12 +24,18 @@ module.exports = function(app) {
   });
 
   //Load author page
-  app.get("/authors/:authorId", function(req, res) {
-    db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(
-      author
-    ) {
+  app.get("/authors/:id", function(req, res) {
+    db.Author.findOne({ where: { id: req.params.id } }).then(function(author) {
       res.render("authors", {
-        authors: author
+        author: author
+      });
+    });
+  });
+
+  app.get("/authors", function(req, res) {
+    db.Author.findAll({ order: [["name", "ASC"]] }).then(function(authors) {
+      res.render("authors", {
+        authors: authors
       });
     });
   });
