@@ -8,18 +8,10 @@ section {
   flex: 1;
 }
 
-/* .column {
-  margin-top: 50px;
-} */
-
 .is-bookInfo{
   padding-top: 10rem;
   margin-bottom: -50px;
 }
-
-/* .list-group-item {
-  line-height: 2.5;
-} */
 
 .navbar-item img, .level-item img {
   max-height: 0%;
@@ -140,8 +132,12 @@ p {
 }
 
 /*Search*/
-.hero.is-primary.is-bold {
-  background: url("../styles/images/sharebooks.jpg") no-repeat fixed;
+.hero {
+  background: url("/images/sharebooks.jpg") no-repeat fixed;
   background-size: cover;
   opacity: 0.65;
+}
+
+.book-info article {
+    border-bottom: 1px solid #ccc;
 }

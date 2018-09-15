@@ -23,8 +23,49 @@ module.exports = function(app) {
 
   // Create a new book
   app.post("/api/books", function(req, res) {
-    db.Book.create(req.body).then(function(dbBook) {
-      res.json(dbBook);
+    const bookInfo = req.body;
+    let categoriesInfo = bookInfo.categories.split(",");
+    let authorsInfo = bookInfo.authors.split(",");
+    // let isbns = bookInfo.isbns;
+
+    delete bookInfo.categories;
+    delete bookInfo.authors;
+
+    // either find a category with name or create a new one
+    const categories = categoriesInfo.map(categoryName =>
+      db.Category.findOrCreate({
+        where: { name: categoryName }
+      }).spread((category, created) => category)
+    );
+
+    // either find a author with name or create a new one
+    const authors = authorsInfo.map(authorName =>
+      db.Author.findOrCreate({
+        where: { name: authorName }
+      }).spread((author, created) => author)
+    );
+
+    db.Book.findOne({
+      where: { googleId: bookInfo.googleId, title: bookInfo.title }
+    }).then(function(dbBook) {
+      if (dbBook !== null) {
+        console.log("We have that book in Biblioteca!");
+        res.json({
+          msg: "Book " + dbBook.title + "was previously added. Thank you!!"
+        });
+      } else {
+        db.Book.create(bookInfo)
+          .then(newBook =>
+            Promise.all(categories)
+              .then(storedCategories => newBook.addCategories(storedCategories))
+              .then(() => newBook)
+          )
+          .then(function(createdBook) {
+            Promise.all(authors).then(storedAuthors =>
+              createdBook.addAuthors(storedAuthors)
+            );
+          });
+      }
     });
   });
 
