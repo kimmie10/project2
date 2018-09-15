@@ -26,10 +26,10 @@ module.exports = function(app) {
   //Load author page
   app.get("/authors/:authorId", function(req, res) {
     db.Book.findAll({ where: { authorId: req.params.authorId } }).then(function(
-      dbBook
+      author
     ) {
       res.render("authors", {
-        books: dbBook
+        authors: author
       });
     });
   });
